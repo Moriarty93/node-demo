@@ -15,7 +15,17 @@ const register = (req, res) => {
         console.log('注册ok')
     })
 }
+const showImg = (req, res) => {
+    res.writeHead(200, {
+        'Content-Type' : 'image/jpeg'
+    })
+    read.readImg('./img.png', (data, type) => {
+            res.write(data, type)
+            res.end()
+    })
+}
 module.exports = {
     login,
-    register
+    register,
+    showImg
 }
